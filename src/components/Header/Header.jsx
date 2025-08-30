@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import logo from "../../assets/images/logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,9 +20,14 @@ const Header = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center py-3">
-        {/* Logo */}
-        <div className="text-xl font-extrabold text-white uppercase tracking-wide">
-          Snaplay
+        {/* Logo PNG */}
+        <div className="flex items-center">
+          <img 
+            src={logo} 
+            alt="Snaplay Logo" 
+            className="h-12 sm:h-16 md:h-24 lg:h-32 w-auto" 
+            // Adjust height as needed
+          />
         </div>
 
         {/* Desktop Nav */}
