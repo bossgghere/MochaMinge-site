@@ -1,0 +1,93 @@
+/* ===============================================
+   GLOBAL STYLES
+   =============================================== */
+
+/* --- Import Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+/* --- CSS Reset & Global Defaults --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Inter', sans-serif; /* Default font for the whole site */
+  background-color: #121212;
+  color: #ffffff;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Scrollbar Styling --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e50914;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f40612;
+}
+
+/* --- Animations Utilities --- */
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+@keyframes glow-pulse {
+  0% { box-shadow: 0 0 20px rgba(229, 9, 20, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(229, 9, 20, 0.6); }
+  100% { box-shadow: 0 0 20px rgba(229, 9, 20, 0.4); }
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s infinite ease-in-out;
+}
+
+/* --- Utility Classes --- */
+.text-gradient {
+  background: linear-gradient(45deg, #e50914, #f8a300);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+  .text-gradient {
+    font-size: 2rem;
+  }
+}
