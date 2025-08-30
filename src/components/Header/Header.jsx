@@ -1,68 +1,76 @@
 import React, { useState, useEffect } from "react";
-import "./Header.css";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header className={`header ${isScrolled ? "scrolled" : ""}`}>
-      <div className="header-content">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-black/80 backdrop-blur-md border-b border-purple-400/20"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center py-3">
         {/* Logo */}
-        <div className="logo">
-          <span>Snaplay</span>
+        <div className="text-xl font-extrabold text-white uppercase tracking-wide">
+          Snaplay
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="nav-links">
-          <a href="#features">Features</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        {/* Desktop Nav */}
 
         {/* CTA Button */}
         <a
           href="https://play.google.com/store/apps/details?id=com.company.bingebit"
           target="_blank"
           rel="noopener noreferrer"
-          className="download-btn"
+          className="hidden md:inline-block bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:from-purple-500 hover:to-pink-400 shadow-md transition transform hover:-translate-y-0.5"
         >
           Download App
         </a>
 
         {/* Mobile Menu Button */}
         <button
-          className={`mobile-toggle ${isMenuOpen ? "active" : ""}`}
+          className="md:hidden flex flex-col gap-1.5"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span
+            className={`w-6 h-0.5 bg-white rounded transition ${
+              isMenuOpen ? "rotate-45 translate-y-2" : ""
+            }`}
+          ></span>
+          <span
+            className={`w-6 h-0.5 bg-white rounded transition ${
+              isMenuOpen ? "opacity-0" : ""
+            }`}
+          ></span>
+          <span
+            className={`w-6 h-0.5 bg-white rounded transition ${
+              isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          ></span>
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Nav */}
       {isMenuOpen && (
-        <div className="mobile-nav">
-          <a href="#features" onClick={() => setIsMenuOpen(false)}>Features</a>
-          <a href="#pricing" onClick={() => setIsMenuOpen(false)}>Pricing</a>
-          <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
-          <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+        <div className="md:hidden flex flex-col gap-4 bg-black/95 backdrop-blur-md px-6 py-6 border-t border-white/10">
+          <a href="#features" onClick={() => setIsMenuOpen(false)} className="text-white font-medium">Features</a>
+          <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="text-white font-medium">Pricing</a>
+          <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-white font-medium">About</a>
+          <a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-white font-medium">Contact</a>
           <a
-            href="https://play.google.com/store"
+            href="https://play.google.com/store/apps/details?id=com.company.bingebit"
             target="_blank"
             rel="noopener noreferrer"
-            className="mobile-download"
+            className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-3 rounded-lg text-center font-semibold hover:from-red-500 hover:to-orange-400 transition"
             onClick={() => setIsMenuOpen(false)}
           >
             Download App
