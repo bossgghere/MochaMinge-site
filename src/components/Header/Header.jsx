@@ -25,11 +25,19 @@ const Header = () => {
           <img 
             src={logo} 
             alt="Snaplay Logo" 
-            className="h-12 w-auto" // Adjust height as needed
+            className="h-8 w-auto" // Adjust height as needed
           />
         </div>
 
         {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center space-x-8">
+          <a href="/" className="text-white hover:text-purple-400 transition-colors font-medium">
+            Home
+          </a>
+          <a href="/legal" className="text-white hover:text-purple-400 transition-colors font-medium">
+            Legal
+          </a>
+        </nav>
 
         {/* CTA Button */}
         <a
@@ -67,15 +75,13 @@ const Header = () => {
       {/* Mobile Nav */}
       {isMenuOpen && (
         <div className="md:hidden flex flex-col gap-4 bg-black/95 backdrop-blur-md px-6 py-6 border-t border-white/10">
-          <a href="#features" onClick={() => setIsMenuOpen(false)} className="text-white font-medium">Features</a>
-          <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="text-white font-medium">Pricing</a>
-          <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-white font-medium">About</a>
-          <a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-white font-medium">Contact</a>
+          <a href="/" onClick={() => setIsMenuOpen(false)} className="text-white font-medium">Home</a>
+          <a href="/legal" onClick={() => setIsMenuOpen(false)} className="text-white font-medium">Legal</a>
           <a
             href="https://play.google.com/store/apps/details?id=com.company.bingebit"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-3 rounded-lg text-center font-semibold hover:from-red-500 hover:to-orange-400 transition"
+            className="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-3 rounded-lg text-center font-semibold hover:from-purple-500 hover:to-pink-400 transition"
             onClick={() => setIsMenuOpen(false)}
           >
             Download App
