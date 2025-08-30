@@ -25,8 +25,7 @@ const Header = () => {
           <img 
             src={logo} 
             alt="Snaplay Logo" 
-            className="h-12 sm:h-16 md:h-24 lg:h-32 w-auto" 
-            // Adjust height as needed
+            className="h-12 w-auto" // Adjust height as needed
           />
         </div>
 
